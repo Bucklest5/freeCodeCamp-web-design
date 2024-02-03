@@ -1,0 +1,87 @@
+** start of undefined **
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title id="title">Video game consoles timeline</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main id="main">
+      <header>
+      <h1>History of video games consoles</h1>
+      <figure id="img-div">
+        <img id="image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Magnavox-Odyssey-Console-Set.jpg/1280px-Magnavox-Odyssey-Console-Set.jpg">
+        <figcaption id="img-caption">The Magnavox Odyssey was the first video game console, released in 1972.</figcaption>
+      </figure>
+      </header>
+      <h3 id="tribute-info">Timeline of consoles:</h3>
+      <ul>
+          <li>First generation (1972–1980): The first generation of home consoles were generally limited to dedicated consoles with just one or two games pre-built into the console hardware, with a limited means to alter gameplay factors.</li>
+          <li>Second generation (1976–1992): The second generation of home consoles was distinguished by the introduction of the game cartridge, where the game's code is stored in read-only memory (ROM) within the cartridge. When the cartridge is slotted into the console, the electrical connections allow the main console's processors to read the game's code from the ROM.</li>
+          <li>Third generation (1983–2003): Frequently called the "8-bit generation", the third generation's consoles used 8-bit processors, five audio channels, and more advanced graphics capability including sprites and tiles instead of block-based graphics of the second generation. Further, the third console saw the market dominance shift from the United States to Japan as a result of the 1983 crash.</li>
+          <li>Fourth generation (1987–2004): The fourth generation of consoles, also known as the "16-bit generation", further advanced core console technology with 16-bit processors, improving the available graphics and audio capabilities of games.</li>
+          <li>Fifth generation (1993–2006): During this time home computers gained greater prominence as a way of playing video games. The video game console industry nonetheless continued to thrive alongside home computers, due to the advantages of much lower prices, easier portability, circuitry specifically dedicated towards video games, the ability to be played on a television set (which PCs of the time could not do in most cases), and intensive first party software support from manufacturers who were essentially banking their entire future on their consoles.</li>
+          <li>Sixth generation (1998–2013): By the sixth generation, console technology began to catch up to performance of personal computers of the time, and the use of bits as their selling point fell by the wayside. The console manufactures focused on the individual strengths of their game libraries as marketing instead. The consoles of the sixth generation saw further adoption of optical media, expanding into the DVD format for even greater data storage capacity, additional internal storage solutions to function as memory cards, as well as adding support either directly or through add-ons to connect to the Internet for online gameplay.</li>
+          <li>Seventh generation (2005–2017): By the seventh generation, Sony, Microsoft, and Nintendo had all developed consoles designed to interface with the Internet, adding networking support for either wired and wireless connections, online services to support multiplayer games, digital storefronts for digital purchases of games, and both internal storage and support for external storage on the console for these games.By the seventh generation, Sony, Microsoft, and Nintendo had all developed consoles designed to interface with the Internet, adding networking support for either wired and wireless connections, online services to support multiplayer games, digital storefronts for digital purchases of games, and both internal storage and support for external storage on the console for these games.</li>
+          <li>Eighth generation (2012–present): Aside from the usual hardware enhancements, consoles of the eighth generation focus on further integration with other media and increased connectivity.[134] Consoles at this point had also standardized on CPUs using the x86 instruction set, the same as in personal computers, and there was a convergence of the individual hardware components between consoles and personal computers, making the porting of games between these systems much easier.</li>
+          <li>Ninth generation (2020–present): Both Microsoft and Sony released successors to their home consoles in November 2020. Consoles in this generation also launched with lower-cost models lacking optical disc drives, targeting those who would prefer to purchase games exclusively through digital downloads. Both console families target 4K and 8K resolution televisions at high frame rates, support for real-time ray tracing rendering, 3D spatial audio, variable refresh rates, the use of high-performance solid-state drives (SSD) as internal high-speed memory to make delivering game content much faster than reading from optical disc or standard hard drives, which can eliminate loading times and support in-game streaming.</li>
+        </ul>
+      <p>To read more detailed information go on the <a id="tribute-link" href="https://en.wikipedia.org/wiki/History_of_video_game_consoles#First_generation_(1972–1980)" target="_blank" >wikipedia entry</a></p>
+    </main>
+  </body>
+</html>
+
+** end of undefined **
+
+** start of undefined **
+
+* {
+  font-family: Verdana;
+}
+
+header {
+  background-color: #000000;
+  color: #D82626;
+  text-align: center;
+  padding: 1px
+}
+
+body {
+  background-color: #8E8C8B;
+}
+
+#image {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+#img-caption {
+  padding: 5px;
+  font-size: 15;
+}
+
+#tribute-info {
+  text-align: center;
+}
+
+ul {
+  text-align: center;
+}
+
+li {
+  text-align: justify;
+  margin: 20 auto;
+  max-width: 800;
+}
+
+p {
+ text-align: center;
+}
+
+** end of undefined **
+

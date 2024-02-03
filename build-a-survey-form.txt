@@ -1,0 +1,125 @@
+** start of undefined **
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Favorite game</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <h1 id="title">Discord Videogame Form</h1>
+    <p id="description">You need to fill this information to join the server</p>
+    <form id="survey-form">
+      <label id="name-label" for="name">Username <input id="name" name="name" type="text" placeholder="Enter your username" required /></label>
+
+      <label id="email-label" for="email">Email <input id="email" name="email" type="email" placeholder="Enter your Email" required /></label>
+
+      <label id="number-label" for="number">Age <input id="number" name="number" type="number" placeholder="Enter your Age" min="0" max="100" required /></label>
+
+      <legend>How did you know us? </legend>
+      <label for="definitely"><input id="definitely" type="radio" name="recommend-type" class="name" value="0" checked /> Commercial</label>
+      <label for="maybe"><input id="maybe" type="radio" name="recommend-type" class="name" value="1" /> Recommendation</label>
+      <label for="not"><input id="not" type="radio" name="recommend-type" class="name" value="2" /> Another way</label>
+
+      <label id="dropdown-label" for="dropdown">What do you plan to do on the server?
+        <select id="dropdown" name="dropdown">
+          <option value="">Select an option</option>
+          <option value="1">Post</option>
+          <option value="2">Answer</option>
+          <option value="3">Read</option>
+        </select>
+      </label>
+      
+      <legend>What are your favorite videogames genres </legend>
+      <label for="checkbox1"><input id="checkbox1" type="checkbox" name="checkbox-type" value="1" class="name" /> Action</label>
+      <label for="checkbox2"><input id="checkbox2" type="checkbox" name="checkbox-type" value="2" class="name" /> Action-adventure</label>
+      <label for="checkbox3"><input id="checkbox3" type="checkbox" name="checkbox-type" value="3" class="name" /> Adventure</label>
+      <label for="checkbox4"><input id="checkbox4" type="checkbox" name="checkbox-type" value="4" class="name" /> Puzzle</label>
+      <label for="checkbox5"><input id="checkbox5" type="checkbox" name="checkbox-type" value="5" class="name" /> Role-playing</label>
+      <label for="checkbox6"><input id="checkbox6" type="checkbox" name="checkbox-type" value="6" class="name" /> Simulation</label>
+      <label for="checkbox7"><input id="checkbox7" type="checkbox" name="checkbox-type" value="7" class="name" /> Strategy</label>
+      <label for="checkbox8"><input id="checkbox8" type="checkbox" name="checkbox-type" value="8" class="name" /> Sports</label>
+      <label for="checkbox9"><input id="checkbox9" type="checkbox" name="checkbox-type" value="9" class="name" /> MMO</label>
+
+      <label for="comment">Any comments or suggestions?
+        <textarea id="comment" name="comment" rows="7" cols="30" placeholder="Enter your comment here..."></textarea>
+      </label>
+
+      <input id="submit" type="submit" value="Submit" />
+    </form>
+  </body>
+</html>
+
+** end of undefined **
+
+** start of undefined **
+
+body {
+  width: 100%;
+  height: 100vh;
+  margin: 0 auto;
+  background-color: #BA0024;
+  color: #f5f6f7;
+  font-family: Verdana;
+  font-size: 17px;
+}
+
+h1 {
+  margin-top: 2em;
+  text-align: center;
+  font-size: 21px;
+  color: #1b1b32;
+}
+
+p {
+  margin-top: 1em;
+  margin-bottom: 3em;
+  text-align: center;
+  font-size: 12px;
+  color: #1b1b32;
+}
+
+form {
+  width: 100vw;
+  max-width: 600px;
+  min-width: 100px;
+  margin: 0 auto;
+  padding: 2em;
+  background-color: #4B0024;
+}
+
+label {
+  display: block;
+  margin: 1rem 0;
+}
+
+input, select, textarea{
+  margin: 10px 0 0 0;
+  width: 100%;
+  min-height: 2em;
+}
+
+.name {
+  width: unset;
+  margin: 0 0.5em 0 0;
+  vertical-align: middle;
+}
+
+input[type="submit"] {
+  font-size: 1rem;
+  height: 3em;
+  background-color: #BE0E78;
+  color: #ffffff;
+}
+
+input[type="radio"] {
+  margin: -7px auto;
+}
+
+input[type="checkbox"] {
+  margin: -7px auto;
+}
+
+** end of undefined **
+

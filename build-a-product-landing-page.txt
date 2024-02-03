@@ -1,0 +1,185 @@
+** start of undefined **
+
+<!DOCTYPE html>
+<html lang="en">
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title id="title"></title>
+  <link rel="stylesheet" href="styles.css" />
+
+  <header id="header">
+    <img id="header-img" src="https://www.pngitem.com/pimgs/m/396-3965849_introduccin-cursos-logos-de-videojuegos-png-transparent-png.png" alt="logo">
+    <nav id="nav-bar">
+      <a class="nav-link" href="#Cabinet">Cabinet</a>
+      <a class="nav-link" href="#Arcades">Arcades</a>
+      <a class="nav-link" href="#Costs">Costs</a>
+    </nav>
+  </header>
+
+  <section id="Cabinet">
+    <h1>Starting steps in a Cabinet</h1>
+    <div id="container">
+      <ul>
+        <li>Step 1: Pick a Cabinet</li>
+        <li>Step 2: Strip Down / Work Your Cabinet</li>
+        <li>Step 3: Decide on Monitor Mounting</li>
+        <li>Step 4: Build a Control Deck</li>
+        <li>Step 5: Controls</li>
+        <li>Step 6: Marquee, Lighting, and Sound</li>
+        <li>Step 7: Monitor, Bezel, and Acrylic/Glass</li>
+        <li>Step 8: Internals</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="Arcades">
+    <h1>Arcades</h1>
+    <p>This is an example of how a cabinet should look</p>
+    <div id="position">
+      <iframe id="video" width="560" height="315" src="https://www.youtube.com/embed/fsgRTHsWW_w" frameborder="0" allowfullscreen></iframe>
+    </div>
+  </section>
+
+  <section id="Costs">
+    <h1>Costs</h1>
+    <div class="block">
+      <p>Arcade1UP Street Fighter Arcade Machine</p>
+      <p class="money">USD 305</p>
+      <img class="image" src="https://images.stockx.com/images/Arcade-1Up-Street-Fighter-Arcade-Machine.jpg?fit=fill&bg=FFFFFF&w=700&h=500&fm=webp&auto=compress&q=90&dpr=2&trim=color&updated_at=1654697541?height=78&width=78" alt="cabinet">
+    </div>
+  </section>
+
+  
+  <form id="form" action="https://www.freecodecamp.com/email-submit" >
+    <h1>Contact us if you need help</h1>
+    <input id="submit" type="submit" value="Send" />
+
+    <input id="email" name="email" type="email" placeholder="Enter your email address" />
+  </form>
+
+</html>
+
+** end of undefined **
+
+** start of undefined **
+
+html {
+  font-family: Sans-serif;
+  margin-top: 85;
+}
+
+#header {
+  background-color: #F5F5F5;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+#header-img {
+  width: 75px;
+}
+
+#nav-bar {
+  display: flex;
+  align-items: center;
+  padding-right: 15px;
+}
+
+.nav-link {
+  color: #000000;
+  text-decoration: none;
+  padding-left: 50;
+}
+
+#position {
+  text-align: center;
+}
+
+h1 {
+  text-align: center;
+}
+
+form {
+  text-align: center;
+}
+
+#container {
+  text-align: center;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  display: inline-block;
+}
+
+li {
+  text-align: left;
+}
+
+p {
+  text-align: center;
+}
+
+.block {
+  background-color: #F5F5F5;
+  height: 300px;
+  width: 250px;
+  text-align: center;
+  margin: auto;
+}
+
+.image {
+  height: 150;
+  width: 150;
+}
+
+div>p {
+  padding: 10;
+  font-size: 20;
+}
+
+.money {
+  padding: 0;
+  font-weight: bold;
+}
+
+#submit {
+  background-color: #F5F5F5;
+  
+}
+
+@media (max-width: 768px) {
+
+  #header {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+  }
+
+  #header-img {
+    
+  }
+
+  #nav-bar {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .nav-link {
+    margin: 6px 0;
+  }
+
+  html {
+    margin-top: 170;
+  }
+  
+}
+
+** end of undefined **
+

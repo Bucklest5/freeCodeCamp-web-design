@@ -1,0 +1,246 @@
+** start of undefined **
+
+<!DOCTYPE html>
+<html lang="en">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title id="title"></title>
+  <link rel="stylesheet" href="styles.css" />
+  <nav id="navbar">
+    <header>Golang Manual</header>
+    <ul>
+      <li><a class="nav-link" href="#Introduction">Introduction</a></li>
+      <li><a class="nav-link" href="#Formatting">Formatting</a></li>
+      <li><a class="nav-link" href="#Commentary">Commentary</a></li>
+      <li><a class="nav-link" href="#Names">Names</a></li>
+      <li><a class="nav-link" href="#Package_names">Package names</a></li>
+      <li><a class="nav-link" href="#Getters">Getters</a></li>
+      <li><a class="nav-link" href="#Interface_names">Interface names</a></li>
+      <li><a class="nav-link" href="#MixedCaps">MixedCaps</a></li>
+      <li><a class="nav-link" href="#Semicolons">Semicolons</a></li>
+      <li><a class="nav-link" href="#Control_structures">Control structures</a></li>
+      <li><a class="nav-link" href="#If">If</a></li>
+      <li><a class="nav-link" href="#Redeclaration_and_reassignment">Redeclaration and reassignment</a></li>
+      <li><a class="nav-link" href="#Reference">Reference</a></li>
+    </ul>
+  </nav>
+  <main id="main-doc">
+    
+    <section class="main-section" id="Introduction">
+      <header>Introduction</header>
+      <p>Go is a new language. Although it borrows ideas from existing languages, it has unusual properties that make effective Go programs different in character from programs written in its relatives. A straightforward translation of a C++ or Java program into Go is unlikely to produce a satisfactory result—Java programs are written in Java, not Go. On the other hand, thinking about the problem from a Go perspective could produce a successful but quite different program. In other words, to write Go well, it's important to understand its properties and idioms. It's also important to know the established conventions for programming in Go, such as naming, formatting, program construction, and so on, so that programs you write will be easy for other Go programmers to understand.</p>
+    </section>
+
+    <section class="main-section" id="Formatting">
+      <header>Formatting</header>
+      <p>With Go we take an unusual approach and let the machine take care of most formatting issues. The gofmt program (also available as go fmt, which operates at the package level rather than source file level) reads a Go program and emits the source in a standard style of indentation and vertical alignment, retaining and if necessary reformatting comments. If you want to know how to handle some new layout situation, run gofmt; if the answer doesn't seem right, rearrange your program (or file a bug about gofmt), don't work around it.</p>
+      <p>As an example, there's no need to spend time lining up the comments on the fields of a structure. Gofmt will do that for you. Given the declaration</p>
+      <div class="code_cube">
+        <pre>
+          <code>
+  type T struct {
+    name string // name of the object
+    value int // its value        
+  }</code>
+        </pre>
+      </div>
+      <p>gofmt will line up the columns:</p>
+      <div class="code_cube">
+        <pre>
+          <code>
+  type T struct {
+    name    string // name of the object
+    value   int    // its value
+}</code>
+        </pre>
+      </div>
+      <p>Some formatting details remain. Very briefly:</p>
+      <ul>
+        <li>Indentation</li>
+        <li>Line length</li>
+        <li>Parentheses</li>
+      </ul>
+
+    </section>
+
+    <section class="main-section" id="Commentary">
+      <header>Commentary</header>
+      <p>Go provides C-style /* */ block comments and C++-style // line comments. Line comments are the norm; block comments appear mostly as package comments, but are useful within an expression or to disable large swaths of code.</p>
+    </section>
+
+    <section class="main-section" id="Names">
+      <header>Names</header>
+      <p>Names are as important in Go as in any other language. They even have semantic effect: the visibility of a name outside a package is determined by whether its first character is upper case. It's therefore worth spending a little time talking about naming conventions in Go programs.</p>
+    </section>
+
+    <section class="main-section" id="Package_names">
+      <header>Package names</header>
+      <p>When a package is imported, the package name becomes an accessor for the contents. After</p>
+      <div class="code_cube">
+        <pre>
+          <code>
+  import "bytes"</code>
+        </pre>
+      </div>
+      <p>the importing package can talk about bytes.Buffer. It's helpful if everyone using the package can use the same name to refer to its contents, which implies that the package name should be good: short, concise, evocative. By convention, packages are given lower case, single-word names; there should be no need for underscores or mixedCaps. Err on the side of brevity, since everyone using your package will be typing that name. And don't worry about collisions a priori. The package name is only the default name for imports; it need not be unique across all source code, and in the rare case of a collision the importing package can choose a different name to use locally. In any case, confusion is rare because the file name in the import determines just which package is being used.</p>
+    </section>
+
+    <section class="main-section" id="Getters">
+      <header>Getters</header>
+      <p>Go doesn't provide automatic support for getters and setters. There's nothing wrong with providing getters and setters yourself, and it's often appropriate to do so, but it's neither idiomatic nor necessary to put Get into the getter's name. If you have a field called owner (lower case, unexported), the getter method should be called Owner (upper case, exported), not GetOwner. The use of upper-case names for export provides the hook to discriminate the field from the method. A setter function, if needed, will likely be called SetOwner. Both names read well in practice:</p>
+    <div class="code_cube">
+        <pre>
+          <code>
+  owner := obj.Owner()
+  if owner != user {
+    obj.SetOwner(user)
+  }</code>
+        </pre>
+      </div>
+    </section>
+
+    <section class="main-section" id="Interface_names">
+      <header>Interface names</header>
+      <p>By convention, one-method interfaces are named by the method name plus an -er suffix or similar modification to construct an agent noun: Reader, Writer, Formatter, CloseNotifier etc.</p>
+<p>There are a number of such names and it's productive to honor them and the function names they capture. Read, Write, Close, Flush, String and so on have canonical signatures and meanings. To avoid confusion, don't give your method one of those names unless it has the same signature and meaning. Conversely, if your type implements a method with the same meaning as a method on a well-known type, give it the same name and signature; call your string-converter method String not ToString.</p>
+    </section>
+
+    <section class="main-section" id="MixedCaps">
+      <header>MixedCaps</header>
+      <p>Finally, the convention in Go is to use MixedCaps or mixedCaps rather than underscores to write multiword names.</p>
+    </section>
+
+    <section class="main-section" id="Semicolons">
+      <header>Semicolons</header>
+      <p>Like C, Go's formal grammar uses semicolons to terminate statements, but unlike in C, those semicolons do not appear in the source. Instead the lexer uses a simple rule to insert semicolons automatically as it scans, so the input text is mostly free of them.</p>
+      <p>The rule is this. If the last token before a newline is an identifier (which includes words like int and float64), a basic literal such as a number or string constant, or one of the tokens</p>
+      <div class="code_cube">
+        <pre>
+          <code>
+  break continue fallthrough return ++ -- ) }</code>
+        </pre>
+      </div>
+    </section>
+
+     <section class="main-section" id="Control_structures">
+      <header>Control structures</header>
+      <p>The control structures of Go are related to those of C but differ in important ways. There is no do or while loop, only a slightly generalized for; switch is more flexible; if and switch accept an optional initialization statement like that of for; break and continue statements take an optional label to identify what to break or continue; and there are new control structures including a type switch and a multiway communications multiplexer, select. The syntax is also slightly different: there are no parentheses and the bodies must always be brace-delimited.</p>
+    </section>
+
+     <section class="main-section" id="If">
+      <header>If</header>
+      <p>In Go a simple if looks like this:</p>
+      <div class="code_cube">
+        <pre>
+          <code>
+  if x > 0 {
+    return y
+  }</code>
+        </pre>
+      </div>
+    </section>
+
+     <section class="main-section" id="Redeclaration_and_reassignment">
+      <header>Redeclaration and reassignment</header>
+      <p>An aside: The last example in the previous section demonstrates a detail of how the := short declaration form works. The declaration that calls os.Open reads,</p>
+      <p>This statement declares two variables, f and err. A few lines later, the call to f.Stat reads,</p>
+      <p>which looks as if it declares d and err. Notice, though, that err appears in both statements. This duplication is legal: err is declared by the first statement, but only re-assigned in the second. This means that the call to f.Stat uses the existing err variable declared above, and just gives it a new value.</p>
+      <p>In a := declaration a variable v may appear even if it has already been declared, provided:</p>
+      <ul>
+        <li>this declaration is in the same scope as the existing declaration of v (if v is already declared in an outer scope, the declaration will create a new variable §),</li>
+        <li>the corresponding value in the initialization is assignable to v, and</li>
+        <li>there is at least one other variable that is created by the declaration.</li>
+      </ul>
+    </section>
+
+    <section class="main-section" id="Reference">
+      <header>Reference</header>
+      <p>Every information was obtained of the official manual of <a href="https://go.dev/doc/effective_go#introduction">Golang</a></p>
+    </section>
+
+  </main>
+</html>
+
+** end of undefined **
+
+** start of undefined **
+
+html {
+  font-family: Arial;
+  background-color: #1D1C1C;
+  color: #fff;
+}
+
+.code_cube {
+  background-color: #313030;
+}
+
+#navbar {
+  width: 200px;
+  height: 100%;
+  position: fixed;
+  background-color: #0092C7;
+}
+
+.main-section {
+  margin-left: 220px;
+  margin-right: 20px;
+}
+
+.main-section:first-of-type {
+  padding-top: 10
+}
+
+body {
+  margin: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+li {
+  padding: 10
+}
+
+header {
+  font-weight: bold;
+  font-size: 20;
+}
+
+nav>header {
+  text-align: center;
+  padding-top: 20;
+}
+
+a {
+  color: #00428E;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+section>ul {
+  list-style: disc;
+}
+
+section>li {
+  padding: 0;
+}
+
+@media (max-width: 768px) {
+  #navbar {
+    width: 100%;
+    text-align: center;
+    position: static;
+  }
+
+  .main-section {
+    margin-left: 0;
+  }
+}
+
+** end of undefined **
+
